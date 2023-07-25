@@ -12,6 +12,7 @@ public class Boot05Web01Application {
         System.out.println("test git2");
         System.out.println("test hot-fix merge");
         System.out.println("make master conflict!!");
+        System.out.println("make hot-fix conflict!!!");
     }
 
 }
