@@ -10,6 +10,7 @@ public class Boot05Web01Application {
         SpringApplication.run(Boot05Web01Application.class, args);
         System.out.println("test git");
         System.out.println("test git2");
+        System.out.println("test hot-fix merge");
     }
 
 }
