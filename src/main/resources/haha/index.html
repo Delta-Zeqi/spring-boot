@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>只要不停下脚步，道路就会不断延伸</h1>
+测试REST风格：
+<form action="/user" method="get">
+    <input value="REST-GET 提交" type="submit"/>
+</form>
+<form action="/user" method="post">
+    <input value="REST-POST 提交" type="submit"/>
+</form>
+<form action="/user" method="post">
+    <input name="_m" type="hidden" value="delete">
+    <input value="REST-DELETE 提交" type="submit"/>
+</form>
+<form action="/user" method="post">
+    <input name="_m" type="hidden" value="put">
+    <input value="REST-PUT 提交" type="submit"/>
+</form>
+</hr>
+测试基本注解：
+<a href="/car/1">@PathVariable</a> <br>
+<a href="/car/1">@RequestHeader</a> <br>
+<a href="cars?brand=byd">@RequestParam-GET</a> <br>
+<a href="/cars?brand=byd&brand=yd">@RequestParam-GET</a> <br>
+<a href="/cars/sell;low=34;brand=byd,audi,yd">@MatrixVariable(矩阵变量)</a> <br>
+<a href="/cars/sell;low=34;brand=byd;brand=audi;brand=yd">@MatrixVariable(矩阵变量)</a> <br>
+<a href="/boss/1;age=20/2;age=10">@MatrixVariable(矩阵变量) /boss/{bossId}/{empId}</a> <br>
+<br>
+<form action="/save" method="post">
+    测试@RequestBody获取数据 <br>
+    用户名：<input name="username"/> <br>
+    邮箱：<input name="email"/>
+</form>
+
+
+</body>
+</html>
