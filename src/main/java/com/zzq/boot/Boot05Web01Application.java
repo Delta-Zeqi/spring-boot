@@ -14,6 +14,7 @@ public class Boot05Web01Application {
         System.out.println("make master conflict!!");
         System.out.println("make hot-fix conflict!!!");
         System.out.println("home computer git");
+        System.out.println("home computer 烦");
     }
 
 }
