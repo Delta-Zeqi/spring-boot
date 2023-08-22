@@ -3,6 +3,7 @@ spring:
 #    static-path-pattern: /res/**
   resources:
     static-locations: [classpath:/haha/]
+#    add-mappings: false 禁用所有静态资源映射规则
     add-mappings: true
     cache:
       period: 11000
