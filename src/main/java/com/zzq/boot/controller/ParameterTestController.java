@@ -55,4 +55,11 @@ public class ParameterTestController {
 
         return map;
     }
+
+    @PostMapping("/save")
+    public Map postMethod(@RequestBody String content){
+        Map<String, Object> map = new HashMap<>();
+        map.put("content", content);
+        return map;
+    }
 }
