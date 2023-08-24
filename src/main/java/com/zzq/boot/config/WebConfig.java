@@ -11,6 +11,7 @@ import org.springframework.web.filter.HiddenHttpMethodFilter;
 @Configuration(proxyBeanMethods = false)
 public class WebConfig {
 
+    //扩展点：将_method 这个属性名改成自己想要的
     @Bean
     public HiddenHttpMethodFilter hiddenHttpMethodFilter() {
         HiddenHttpMethodFilter hiddenHttpMethodFilter = new HiddenHttpMethodFilter();

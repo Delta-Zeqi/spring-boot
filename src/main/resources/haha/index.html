@@ -19,24 +19,39 @@
 </form>
 <form action="/user" method="post">
     <input name="_m" type="hidden" value="put">
+    <input name="_method" type="hidden" value="put">
     <input value="REST-PUT 提交" type="submit"/>
 </form>
 </hr>
 测试基本注解：
-<a href="/car/1">@PathVariable</a> <br>
-<a href="/car/1">@RequestHeader</a> <br>
-<a href="cars?brand=byd">@RequestParam-GET</a> <br>
-<a href="/cars?brand=byd&brand=yd">@RequestParam-GET</a> <br>
-<a href="/cars/sell;low=34;brand=byd,audi,yd">@MatrixVariable(矩阵变量)</a> <br>
-<a href="/cars/sell;low=34;brand=byd;brand=audi;brand=yd">@MatrixVariable(矩阵变量)</a> <br>
-<a href="/boss/1;age=20/2;age=10">@MatrixVariable(矩阵变量) /boss/{bossId}/{empId}</a> <br>
+<ul>
+    <li>@PathVariable(路径变量)</li>
+        <a href="/car/3/owner/lisi?age=18&interests=basketball&interests=football&interests=game">/car/{id}/owner/{username}</a>
+    <li>@RequestHeader(获取请求头)</li>
+    <li>@RequestParam(获取请求参数)</li>
+    <li>@CookieValue(获取cookie值)</li>
+    <li>@RequestAttribute(获取request域属性)</li>
+    <li>@RequestBody(获取请求体)</li>
+    <li>@MatrixVariable(矩阵变量)</li>
+</ul>
+<a href="/cars/sell;low=34;brand=byd,audi,yd">@MatrixVariable(矩阵变量)</a>
+<a href="/cars/sell;low=34;brand=byd;brand=audi;brand=yd">@MatrixVariable(矩阵变量)</a>
+<a href="/boss/1;age=20/2;age=10">@MatrixVariable(矩阵变量)/boss/{bossId}/{empId}</a>
 <br>
 <form action="/save" method="post">
     测试@RequestBody获取数据 <br>
     用户名：<input name="username"/> <br>
     邮箱：<input name="email"/>
+    <input type="submit" value="提交">
 </form>
 
+<ol>
+    <li>矩阵变量需要在 SpringBoot 中手动开启</li>
+    <li>根据RFC3986的规范，矩阵变量应当绑定在路径变量中</li>
+    <li>若是有多个矩阵变量，应当使用英文符号;进行分割</li>
+    <li>若是一个矩阵变量有多个值，应当使用英文符号,进行分割，或者命名多个重复的key即可。</li>
+
+</ol>
 
 </body>
 </html>
