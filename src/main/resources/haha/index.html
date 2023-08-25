@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -34,6 +34,22 @@
     <li>@RequestBody(获取请求体[只有POST请求有请求体])</li>
     <li>@MatrixVariable(矩阵变量)</li>
 </ul>
+
+/cars/{path}?xxx=xxx&aaa=ccc    queryString 查询字符串 @RequestParam: <br/>
+/cars/{path;low=34;brand=byd,audi,yd}   矩阵变量 <br/>
+面试题：页面开发，cookie禁用了，session里面的内容怎么使用？</br>
+session内容使用的原理：<br/>
+session.set(a,b) ---> jsessionid ---> cookie ---> 每次发请求携带。
+所以如果cookie禁用了，就找不到 session 的 id，也就找不到 session的内容 <br/>
+解决方案：<br/>
+url重写： /abc;jsessionid=xxxx 把cookie的值使用矩阵变量的方式进行传递
+<br>
+矩阵变量实例：<br>
+原来的url: /boss/1/2 <br>
+使用矩阵变量重写后的url： /boss/1;age=10/2;age=20
+<br>
+<hr width="100%" color="blue"/>
+
 <a href="/cars/sell;low=34;brand=byd,audi,yd">@MatrixVariable(矩阵变量)</a>
 <a href="/cars/sell;low=34;brand=byd;brand=audi;brand=yd">@MatrixVariable(矩阵变量)</a>
 <a href="/boss/1;age=20/2;age=10">@MatrixVariable(矩阵变量)/boss/{bossId}/{empId}</a>
