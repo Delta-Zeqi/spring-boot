@@ -1,5 +1,6 @@
 package com.zzq.boot.controller;
 
+import com.zzq.boot.bean.Person;
 import org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
@@ -18,6 +19,17 @@ import java.util.Map;
  */
 @RestController
 public class ParameterTestController {
+
+    /**
+     * 数据绑定：页面提交的请求数据（GET、POST）都可以和对象属性进行绑定
+     * @param person
+     * @return
+     */
+    @PostMapping("/saveuser")
+    public Person saveUser(Person person) {
+        return person;
+    }
+
 
     /**
      * @GetMapping("/car/{id}/owner/{username}") 浏览器发送 /car/1 就是第一辆汽车

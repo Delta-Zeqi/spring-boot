@@ -5,7 +5,7 @@
     <title>Title</title>
 </head>
 <body>
-<h1>只要不停下脚步，道路就会不断延伸</h1>
+<h1>竹杖芒鞋轻胜马，谁怕？一蓑烟雨任平生。</h1>
 测试REST风格：
 <form action="/user" method="get">
     <input value="REST-GET 提交" type="submit"/>
@@ -66,8 +66,23 @@ url重写： /abc;jsessionid=xxxx 把cookie的值使用矩阵变量的方式进�
     <li>根据RFC3986的规范，矩阵变量应当绑定在路径变量中</li>
     <li>若是有多个矩阵变量，应当使用英文符号;进行分割</li>
     <li>若是一个矩阵变量有多个值，应当使用英文符号,进行分割，或者命名多个重复的key即可。</li>
-
 </ol>
+<hr/>
+测试原生API:
+<a href="/testapi">测试原生API</a>
+<hr/>
+测试复杂类型：<hr>
+测试封装POJO：
+<form action="/saveuser" method="post">
+    姓名：<input name="userName" value="zhangsan"><br>
+    年龄：<input name="age" value="18"><br>
+    生日：<input name="birth" value="2024/02/04"><br>
+<!--    宠物姓名：<input name="pet.name" value="tom"><br>-->
+<!--    宠物年龄：<input name="pet.age" value="5"><br>-->
+    宠物：<input name="pet" value="tom,5"><br>
+    <input type="submit" value="保存"><br>
+</form>
+<br>
 
 </body>
 </html>

@@ -1,7 +1,11 @@
 package com.zzq.boot.config;
 
+import com.zzq.boot.bean.Pet;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.convert.converter.Converter;
+import org.springframework.format.FormatterRegistry;
+import org.springframework.util.StringUtils;
 import org.springframework.web.filter.HiddenHttpMethodFilter;
 import org.springframework.web.servlet.config.annotation.PathMatchConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -54,6 +58,28 @@ public class WebConfig /*implements WebMvcConfigurer*/ {
                 UrlPathHelper urlPathHelper = new UrlPathHelper();
                 urlPathHelper.setRemoveSemicolonContent(false);
                 configurer.setUrlPathHelper(urlPathHelper);
+            }
+
+            /**
+             * 推理：在SpringBoot启动的时候，会将 WebMvcConfigurer 重写过的方法的注册到组件中
+             * 在初始化
+             * @param registry
+             */
+            @Override
+            public void addFormatters(FormatterRegistry registry) {
+                registry.addConverter(new Converter<String, Pet>() {
+                    @Override
+                    public Pet convert(String source) {
+                        if (!StringUtils.isEmpty(source)){
+                            Pet pet = new Pet();
+                            String[] petProperties = source.split(",");
+                            pet.setName(petProperties[0]);
+                            pet.setAge(Integer.parseInt(petProperties[1]));
+                            return pet;
+                        }
+                        return null;
+                    }
+                });
             }
         };
     }
